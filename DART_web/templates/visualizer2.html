@@ -1,0 +1,137 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/style.css">
+<title>DART 모델 시각화</title>
+</head>
+<body>
+
+	<div class=top>
+	<h1 id="stock-name" class="left">로드 중...</h1>
+	<form action="#" method="dialog">
+	<div class="right">
+	<input class="form-control left" type="text" id="stockNameInput" placeholder="회사 이름 (대소문자 구분)" style="width:240px;">
+	<button type="submit" id="updateStockName" class="btn btn-primary mb-3">종목 변경</button>
+	</div>
+	</form>
+	</div>
+	<div class="full-width" >
+		<div id=stock-class class="half-width left">
+			<table style="width:100%; text-align: center;">
+				<tr>
+					<th style="border-bottom:1px solid;padding: 8px;">종목 수익률 등급</th>
+				</tr>
+				<tr>
+					<td style="font-size: 7rem;" id="stock-grade">&nbsp;</td>
+				</tr>
+				<tr>
+					<td id="stock-grade-bottom"></td>
+				</tr>
+				<tr>
+					<td>
+						<img id="wordcloud-positive-img">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id=stock-info>
+			<table class="table half-width">
+				<thead>
+					<tr>
+						<th scope="row" colspan="2" style="text-align: center;size: 1rem;">
+							회사 정보 및 분석
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--
+					<tr>
+						<th scope="row">회사개요</td>
+						<td id="about-company">...</td>
+					</tr>
+				-->
+					<tr>
+						<th scope="row">주요사업</td>
+						<td id="main-business"></td>
+					</tr>
+					<tr>
+						<th scope="row">시가총액</td>
+						<td id="capitalization"></td>
+					</tr>
+					<tr>
+						<th scope="row">액면가</td>
+						<td id="per-value"></td>
+					</tr>
+					<tr>
+						<th scope="row">주식 수</td>
+						<td id="stock-count"></td>
+					</tr>
+					
+					
+					<tr>
+						<th scope="row">뉴스<br>긍정도</th>
+						<td>
+							<input class="form-control-plaintext" id="news-date" disabled value="뉴스분석 로드중">
+							<input type="range" step=0.001 id="news-range" value="0" disabled>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">종토방<br>긍정도</th>
+						<td><input class="form-control-plaintext" id="discussion-date" disabled value="토론분석 로드중">
+							<input type="range" step=0.001 id="discussion-range" value="0" disabled>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--
+		<div class="half-width left">
+			<input class="form-control-plaintext" id="news-date" disabled value="뉴스분석 로드중">
+			<input type="range" id="news-range" value="0" disabled>
+		</div>
+		<div class="half-width right">
+			<input class="form-control-plaintext" id="discussion-date" disabled value="토론분석 로드중">
+			<input type="range" id="discussion-range" value="0" disabled>
+		</div>
+	-->
+	</div>
+	<div class="full-width" style="height: 400px;">
+	<div class="half-width left">
+		<canvas id="news-count" width="455" height="400"></canvas>
+	</div>
+	<div class="half-width right">
+		<canvas id="discussion-count" width="455" height="400"></canvas>
+	</div>
+	</div>
+	<div id="chartContainer">차트 로드중...</div>
+	<div class="full-width">
+		<div class="half-width left">
+			<canvas id="stockPERChart" width="455" height="400"></canvas>
+		</div>
+		<div class="half-width right">
+			<canvas id="stockPBRChart" width="455" height="400"></canvas>
+		</div>
+		<div class="quarter-width left">
+			<canvas id="financialGrowth" width="225" height="398"></canvas>
+		</div>
+		<div class="quarter-width left">
+			<canvas id="financialEarning" width="225" height="398"></canvas>
+		</div>
+		<div class="quarter-width right">
+			<canvas id="financialStability" width="225" height="398"></canvas>
+		</div>
+		<div class="quarter-width right">
+			<canvas id="financialActivity" width="225" height="398"></canvas>
+		</div>
+	</div>
+	<script src="../static/js/canvasjs-stock-1.2.17/canvasjs.stock.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.0/dist/chart.js"></script>
+	<script src="../static/js/index.js"></script>
+	<script>
+	</script>
+</body>
+</html>

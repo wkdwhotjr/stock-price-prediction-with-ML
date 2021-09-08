@@ -1,0 +1,1 @@
+conda activate python37 & python "종토방평가.py" -m "종토방_긍부정모델/종토방_긍부정모델.h5"&pause

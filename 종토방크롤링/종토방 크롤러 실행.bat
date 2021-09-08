@@ -1,0 +1,1 @@
+conda activate base & python "종토방크롤러 multiprocessing.py"&pause
